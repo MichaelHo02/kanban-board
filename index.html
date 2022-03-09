@@ -8,6 +8,7 @@
 	<title>Kanban Board</title>
 	<link rel="stylesheet" href="css/main.css">
 	<script>
+		let arr = {};
 		fetch("http://127.0.0.1:8080/api", {
 
 				method: "GET",
@@ -26,10 +27,11 @@
 			}
 
 		) .then(function (obj) {
-				sessionStorage.setItem("data", JSON.stringify(obj));
-			}
-
-		);
+			arr = { ...obj };
+			sessionStorage.setItem("data", JSON.stringify(obj));
+			console.log(typeof(obj));
+		});
+		console.log(arr);
 	</script>
 </head>
 
